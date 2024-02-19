@@ -1,4 +1,3 @@
-'''  
 import torch
 import numpy as np
 from torch.utils.data import DataLoader
@@ -38,6 +37,3 @@ with torch.no_grad():
 embeddings = np.concatenate(embeddings)
 print (embeddings)
 print(embeddings.shape)  
-
-
-'''
