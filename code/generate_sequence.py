@@ -15,7 +15,7 @@ model.to(device)
 
 # Read gene sequences from a fasta file using Biopython
 sequences = []
-fasta_file = "/scratch/sp96859/GenSLM/B-samples-train.fasta"  # 指定fasta文件的路径
+fasta_file = "/scratch/sp96859/GenSLM/B-samples-train.fasta" 
 for record in SeqIO.parse(fasta_file, "fasta"):
     sequences.append(str(record.seq))
 
