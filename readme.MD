@@ -3,7 +3,7 @@ ml Miniconda3/4.10.3
 conda create -n GenSLM python=3.10  
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia  
 pip install git+https://github.com/ramanathanlab/genslm   
-# Download the pre=trained models
+# Download the pre-trained models
 The pre-trained models and datasets can be downloaded from this [Globus Endpoint](https://app.globus.org/file-manager?origin_id=25918ad0-2a4e-4f37-bcfc-8183b19c3150&origin_path=%2F&two_pane=false).  
 # embedding code with fasta file as DNA sequence Data  
 ```python  
@@ -11,7 +11,7 @@ import torch
 import numpy as np
 from torch.utils.data import DataLoader
 from genslm import GenSLM, SequenceDataset
-from Bio import SeqIO  # 导入Biopython中的SeqIO模块
+from Bio import SeqIO 
 
 # Load model
 model = GenSLM("genslm_25M_patric", model_cache_dir="/scratch/sp96859/GenSLM")
@@ -48,3 +48,6 @@ print (embeddings)
 print(embeddings.shape)  
 ```  
 # Generate synthetic sequences with fasta file as DNA sequence Data  
+```python  
+##
+```  
