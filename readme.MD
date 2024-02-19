@@ -5,7 +5,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvi
 pip install git+https://github.com/ramanathanlab/genslm   
 # Download the pre-trained models
 The pre-trained models and datasets can be downloaded from this [Globus Endpoint](https://app.globus.org/file-manager?origin_id=25918ad0-2a4e-4f37-bcfc-8183b19c3150&origin_path=%2F&two_pane=false).  
-# embedding code with fasta file as DNA sequence Data  
+# Embedding code with fasta file as DNA sequence Data  
 ```python  
 import torch
 import numpy as np
