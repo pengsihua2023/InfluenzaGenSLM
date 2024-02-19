@@ -1,2 +1,2 @@
-This is my new repository for influenza.
-Vey good.
+This is my new repository for influenza.  
+Vey good.  
