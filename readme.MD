@@ -44,3 +44,4 @@ embeddings = np.concatenate(embeddings)
 print (embeddings)
 print(embeddings.shape)  
 ```  
+# Generate synthetic sequences with fasta file as DNA sequence Data  
