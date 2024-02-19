@@ -1,3 +1,2 @@
 # Installation  
-This is my new repository for influenza.  
-Vey good.  
+pip install git+https://github.com/ramanathanlab/genslm   
