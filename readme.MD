@@ -84,7 +84,7 @@ for sequence in sequences:
     print(sequence)
 
 ```  
-# I submitted the job using emb.sh in Sapelo2 cluster  
+# I submitted the job using sub_GPU_GenSLM-embedding.sh in Sapelo2 cluster  
 ```  
 
 #!/bin/bash
@@ -102,9 +102,6 @@ for sequence in sequences:
 
 cd $SLURM_SUBMIT_DIR
 
-#ml Amber/22.0-foss-2021b-AmberTools-22.3-CUDA-11.4.1
-
-#srun $AMBERHOME/bin/pmemd.cuda -O -i ./prod.in -o prod.out  -p ./dimerFBP_GOL.prmtop -c ./restart.rst -r prod.rst -x prod.mdcrd
 #python sihua-DNA-BERT-unsupervize-learning-more-GPU-Segmentembedding.py
 #ml Biopython/1.78-foss-2020b
 #ml scikit-learn/1.0.1-foss-2021b
