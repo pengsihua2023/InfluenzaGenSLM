@@ -46,6 +46,13 @@ with torch.no_grad():
 embeddings = np.concatenate(embeddings)
 print (embeddings)
 print(embeddings.shape)  
+
+# Convert NumPy array to PyTorch tensor  
+embeddings_tensor = torch.from_numpy(embeddings)
+
+# Save the tensor to a file, specify the file name and path here  
+torch.save(embeddings_tensor, '/scratch/sp96859/GenSLM/embeddings.pt')
+
 ```  
 # Generate synthetic sequences with fasta file as DNA sequence Data  
 ```python  
