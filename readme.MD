@@ -53,6 +53,9 @@ embeddings_tensor = torch.from_numpy(embeddings)
 # Save the tensor to a file, specify the file name and path here  
 torch.save(embeddings_tensor, '/scratch/sp96859/GenSLM/embeddings.pt')
 
+# When loading this .pt file, you can use the torch.load method directly. For example:
+# loaded_embeddings = torch.load('/scratch/sp96859/GenSLM/embeddings.pt')
+
 ```  
 # Generate synthetic sequences with fasta file as DNA sequence Data  
 ```python  
