@@ -94,6 +94,59 @@ for sequence in sequences:
     print(sequence)
 
 ```  
+
+# Generate synthetic sequences with fasta file as DNA sequence Data, and then save the generated DNA sequences to a fasta format file.
+```  
+import torch
+from genslm import GenSLM
+from Bio.SeqRecord import SeqRecord
+from Bio.Seq import Seq
+from Bio import SeqIO
+
+# Load model
+model = GenSLM("genslm_25M_patric", model_cache_dir="/scratch/sp96859/GenSLM")
+model.eval()
+
+# Select GPU device if it is available, else use CPU
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model.to(device)
+
+# Prompt the language model with a start codon
+prompt = model.tokenizer.encode("ATG", return_tensors="pt").to(device)
+
+tokens = model.model.generate(
+    prompt,
+    max_length=2048,  # Increase this to generate longer sequences 
+    min_length=2048,
+    do_sample=True,
+    top_k=50,
+    top_p=0.95,
+    num_return_sequences=1,  # Change the number of sequences to generate
+    remove_invalid_values=True,
+    use_cache=True,
+    pad_token_id=model.tokenizer.encode("[PAD]")[0],
+    temperature=1.0,
+)
+
+sequences = model.tokenizer.batch_decode(tokens, skip_special_tokens=True)
+
+# Prepare to save to FASTA file
+fasta_file = "/scratch/sp96859/GenSLM/generated_sequences.fasta"
+seq_records = []
+for i, sequence in enumerate(sequences):
+    # Create a SeqRecord object
+    seq_record = SeqRecord(Seq(sequence),
+                           id=f"sequence_{i+1}",
+                           description="Generated DNA sequence")
+    seq_records.append(seq_record)
+
+# Write to FASTA file
+with open(fasta_file, "w") as output_handle:
+    SeqIO.write(seq_records, output_handle, "fasta")
+
+print(f"Generated DNA sequences have been saved to {fasta_file}.")
+
+```  
 # I submitted the job using sub_GPU_GenSLM-embedding.sh in Sapelo2 cluster  
 ```  
 
